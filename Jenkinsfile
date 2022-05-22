@@ -4,26 +4,25 @@ pipeline {
   
   stages {
     
-    stage("build"){
+    stage("git clone"){
       steps {
-          echo 'building application ...' 
+            echo 'git cloning ...'
+            git 'https://github.com/theninjacoder-uz/jenkins-demo.git'
       }
     }
-    
-    
-    stage("test"){
+
+    stage("maven build"){
       steps {
-          echo 'testing application ...' 
+          echo 'building application ...'
+          sh 'mvn package'
       }
     }
-    
-    
-    stage("deploy"){
-      steps {
-          echo 'deploying application ...' 
-      }
-    }
+
+    stage("create docker image"){
+         steps {
+              echo 'creating docker image ...'
+              sh 'docker build -t jenkins-demo:latest .'
+          }
+        }
   }
-  
-  
 }
