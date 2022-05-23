@@ -8,6 +8,7 @@ public class TestController {
 
     @GetMapping("/login")
     public String login(){
+        System.out.println("hello world");
         return "Successfully login";
     }
 }
