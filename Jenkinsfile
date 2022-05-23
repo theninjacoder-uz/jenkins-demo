@@ -8,10 +8,17 @@ pipeline {
 
   stages {
     
+
+    stage('Build'){
+        steps{
+           configFileProvider([configFile(fileId: 'my-maven-settings-dot-xml', variable: 'MAVEN_SETTINGS_XML')]) {
+                sh 'mvn -U --batch-mode -s $MAVEN_SETTINGS_XML clean install -P foo'
+            }
+        }
+    }
+
     stage("git clone"){
       steps {
-      configFileProvider([configFile(fileId: 'my-maven-settings-dot-xml', variable: 'MAVEN_SETTINGS_XML')]) {
-                  sh 'mvn -U --batch-mode -s $MAVEN_SETTINGS_XML clean install -P foo'
             echo 'git cloning ...'
             git "https://github.com/theninjacoder-uz/jenkins-demo.git"
       }
