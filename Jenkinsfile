@@ -1,18 +1,13 @@
 pipeline {
  
   agent any
-
+ 
+ tools {
+   maven 'maven-3.8.5'
+ }
+ 
   stages {
-    
-
-    stage('Build'){
-        steps{
-           configFileProvider([configFile(fileId: 'my-maven-settings-dot-xml', variable: 'MAVEN_SETTINGS_XML')]) {
-                sh 'mvn -U --batch-mode -s $MAVEN_SETTINGS_XML clean install -P foo'
-            }
-        }
-    }
-
+   
     stage("git clone"){
       steps {
             echo 'git cloning ...'
