@@ -21,7 +21,7 @@ pipeline {
      
      stage('get permission'){
          steps{
-               sh 'chmod 666 /var/run/docker.sock'    
+               sh 'sudo usermod -aG docker $USER'    
          }
      
      }
