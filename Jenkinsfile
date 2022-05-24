@@ -19,12 +19,12 @@ pipeline {
             }
         }
      
-     stage('get permission'){
-         steps{
-               sh 'sudo usermod -aG docker $USER'    
-         }
+//      stage('get permission'){
+//          steps{
+//                sh 'sudo usermod -aG docker $USER'    
+//          }
      
-     }
+//      }
 
        stage('connect docker_jenkins_springboot'){
        steps{
