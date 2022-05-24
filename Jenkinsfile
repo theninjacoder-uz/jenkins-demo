@@ -28,7 +28,7 @@ pipeline {
 
        stage('connect docker_jenkins_springboot'){
        steps{
-         sh 'docker network create jenkins'
+//          sh 'docker network create jenkins'
          sh 'docker run --name jenkins-docker --rm --detach \
                --privileged --network jenkins --network-alias docker \
                --env DOCKER_TLS_CERTDIR=/certs \
