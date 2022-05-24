@@ -21,9 +21,7 @@ pipeline {
      
      stage('get permission'){
          steps{
-         sh 'sudo usermod -aG docker jenkins'
-         sh 'sudo usermod -aG root jenkins'
-         sh 'chmod 666 /var/run/docker.sock'    
+               sh 'chmod 666 /var/run/docker.sock'    
          }
      
      }
