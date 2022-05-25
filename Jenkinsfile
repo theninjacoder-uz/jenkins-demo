@@ -4,6 +4,9 @@ pipeline {
     registryCredential = 'test'
     dockerImage = ''
   }
+  tools{
+    maven '3.8.5'
+  }
   agent any
   stages {
     stage('Cloning Git') {
