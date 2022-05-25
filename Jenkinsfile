@@ -57,7 +57,7 @@ pipeline {
      
     stage("run") {
       steps{
-       sh 'java -jar jenkins-demo.jar'
+       sh 'java -jar /var/lib/jenkins/workspace/test/target/jenkins-demo.jar'
       }
     }
 }
