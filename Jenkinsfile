@@ -6,13 +6,13 @@ pipeline {
   }
   agent any
   stages {
-//     stage('Cloning Git') {
-//       steps {
+    stage('Cloning Git') {
+      steps {
 // //         sh "sudo usermod -a -G docker $USER"
         git([url: 'https://github.com/theninjacoder-uz/jenkins-demo.git', branch: 'master', credentialsId: 'test'])
  
-//       }
-//     }
+      }
+    }
 //     stage('Building image') {
 //       steps{
 //         script {
